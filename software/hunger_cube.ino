@@ -24,7 +24,7 @@ int font[] = {
   94,  // d
   121, // E
   113, // F
-  61,  // G (poor)
+  125,  // G (poor, looks like 6)
   118,  // H
   48,  // I (left side)
   30,  // J
@@ -56,6 +56,12 @@ int font[] = {
   239  // 9
 };
 
+// input pin assignments
+int lightpin1=0;  // light sensor on analog pin 0
+int lightpin2=1;  // light sensor on analog pin 1
+int temppin=2;    // temperature sensor on analog pin 2, MCP9700
+int hallpin=10;    // hall effect sensor on digital pin 10
+
 void setup () {
 // initialize serial communication:
   Serial.begin(9600);
@@ -63,20 +69,45 @@ void setup () {
   for (int i=2; i <= 10; i++) {
     pinMode(i, OUTPUT);
   }
+  pinMode(hallpin, INPUT);
 }
 
 void loop () {
   for (int i=0; i<=36; i++) {
     update_display(i);
+    read_sensors();
     delay(1000);
   }
 }
 
+void read_sensors() {
+  int light1=analogRead(lightpin1);
+  int light2=analogRead(lightpin2);
+  float temperature=analogRead(temppin);
+  temperature=temperature*5/1024.0; // times 5 volts divided by 1024 steps
+  temperature=temperature - 0.4;    // 400mv offset for this sensor
+  temperature=temperature / 0.0195;   // 19.5mv per step
+  int magnet=digitalRead(hallpin);   // magnets, how do they work?
+  
+  Serial.print(light1);
+  Serial.print("\t");
+  Serial.print(light2);
+  Serial.print("\t");
+  Serial.print(magnet);
+  Serial.print("\t");
+  Serial.print(temperature);
+  Serial.print("\t");
+  
+  Serial.println();
+}
+  
+  
 void update_display(int character) {
   // shift character's bits two to the left for pins 2-7, and leave leave pin 0 and 1 alone
   PORTD = (PORTD & B00000011) | (font[character] << 2);
   // put the last two bits in pins 8 and 9
   PORTB = (PORTB & B11111100) | (font[character] >> 6);
+  /*
   Serial.print("character is ");
   Serial.print(character);
   Serial.print("-");
@@ -85,4 +116,5 @@ void update_display(int character) {
   Serial.print(PORTD);
   Serial.print(", PORTB to ");
   Serial.println(PORTB);
+  */
 }
