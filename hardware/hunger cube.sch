@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7707,20 +7707,20 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <parts>
 <part name="ISP1" library="adafruit" deviceset="AVRISP" device="-6"/>
 <part name="IC1" library="SparkFun" deviceset="AVR-MEGA8-P" device="PTH"/>
-<part name="Q1" library="SparkFun" deviceset="CRYSTAL" device="HC49US"/>
+<part name="Q1" library="SparkFun" deviceset="CRYSTAL" device="HC49US" value="16Mhz"/>
 <part name="S1" library="SparkFun" deviceset="TAC_SWITCH" device="PTH" value="enter"/>
 <part name="R1" library="resistor" deviceset="R-US_" device="0207/12" value="10K"/>
 <part name="S6" library="SparkFun" deviceset="TAC_SWITCH" device="PTH" value="reset"/>
-<part name="C1" library="resistor" deviceset="C-US" device="025-050X050"/>
-<part name="C2" library="resistor" deviceset="C-US" device="025-050X050"/>
+<part name="C1" library="resistor" deviceset="C-US" device="025-050X050" value="18pF"/>
+<part name="C2" library="resistor" deviceset="C-US" device="025-050X050" value="18pF"/>
 <part name="DIS1" library="display-hp" deviceset="HD-H101" device=""/>
-<part name="IC2" library="adafruit" deviceset="MCP1700" device="INLINE"/>
+<part name="IC2" library="adafruit" deviceset="MCP1700" device="INLINE" value="LDO 5v"/>
 <part name="C3" library="resistor" deviceset="C-US" device="025-050X050" value="1 uf"/>
 <part name="C4" library="resistor" deviceset="C-US" device="025-050X050" value="1 uf"/>
 <part name="R2" library="resistor" deviceset="R-US_" device="0207/12" value="100"/>
 <part name="R3" library="resistor" deviceset="R-US_" device="0207/12"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
-<part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME1" library="frames" deviceset="DOCFIELD" device="" value="1"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X2" device="" value="Battery"/>
@@ -7740,9 +7740,9 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="JP10" library="pinhead" deviceset="PINHD-1X2" device="" value="R Light 1"/>
 <part name="JP11" library="pinhead" deviceset="PINHD-1X2" device="" value="R light 2"/>
-<part name="T1" library="opto-trans-siemens" deviceset="BPX81" device=""/>
-<part name="T2" library="opto-trans-siemens" deviceset="BPX81" device=""/>
-<part name="MCP9700" library="transistor" deviceset="*-NPN-" device="TO92-EBC"/>
+<part name="T1" library="opto-trans-siemens" deviceset="BPX81" device="" value="PT204"/>
+<part name="T2" library="opto-trans-siemens" deviceset="BPX81" device="" value="PT204"/>
+<part name="MCP9700" library="transistor" deviceset="*-NPN-" device="TO92-EBC" value="temp"/>
 <part name="JP12" library="pinhead" deviceset="PINHD-1X3" device="" value="R temp"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
@@ -7754,8 +7754,8 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="JP13" library="pinhead" deviceset="PINHD-1X1" device="" value="R screw"/>
 <part name="TILT" library="tilt-sensor" deviceset="TILT-SENSOR" device=""/>
 <part name="SG1" library="SparkFun" deviceset="BUZZER" device="PTH"/>
-<part name="JP6" library="pinhead" deviceset="PINHD-1X2" device="" value="A4-A5"/>
-<part name="JP14" library="pinhead" deviceset="PINHD-1X2" device="" value="D0-D1"/>
+<part name="JP6" library="pinhead" deviceset="PINHD-1X2" device="" value="A5 A4"/>
+<part name="JP14" library="pinhead" deviceset="PINHD-1X2" device="" value="D0 D1"/>
 </parts>
 <sheets>
 <sheet>
@@ -7777,6 +7777,11 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="33.02" y1="-22.86" x2="73.66" y2="-22.86" width="0.1524" layer="94"/>
 <wire x1="73.66" y1="-22.86" x2="73.66" y2="-55.88" width="0.1524" layer="94"/>
 <wire x1="73.66" y1="-55.88" x2="33.02" y2="-55.88" width="0.1524" layer="94"/>
+<wire x1="127" y1="48.26" x2="165.1" y2="48.26" width="0.1524" layer="94"/>
+<wire x1="165.1" y1="48.26" x2="165.1" y2="-17.78" width="0.1524" layer="94"/>
+<wire x1="165.1" y1="-17.78" x2="127" y2="-17.78" width="0.1524" layer="94"/>
+<wire x1="127" y1="-17.78" x2="127" y2="48.26" width="0.1524" layer="94"/>
+<text x="129.54" y="43.18" size="2.1844" layer="94">Remote Daughterboards</text>
 </plain>
 <instances>
 <instance part="ISP1" gate="G$1" x="5.08" y="-12.7"/>
@@ -7803,7 +7808,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <instance part="P+4" gate="1" x="-15.24" y="25.4" rot="R90"/>
 <instance part="JP4" gate="A" x="53.34" y="-45.72"/>
 <instance part="GND3" gate="1" x="40.64" y="-30.48" rot="R180"/>
-<instance part="P+5" gate="1" x="71.12" y="-35.56"/>
+<instance part="P+5" gate="1" x="71.12" y="-33.02"/>
 <instance part="JP5" gate="G$1" x="63.5" y="-43.18"/>
 <instance part="GND4" gate="1" x="119.38" y="15.24"/>
 <instance part="JP2" gate="G$1" x="68.58" y="68.58" smashed="yes">
@@ -7818,17 +7823,17 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <instance part="R4" gate="G$1" x="48.26" y="68.58" rot="R180"/>
 <instance part="GND5" gate="1" x="40.64" y="63.5"/>
 <instance part="P+6" gate="1" x="78.74" y="78.74"/>
-<instance part="JP10" gate="G$1" x="134.62" y="60.96"/>
-<instance part="JP11" gate="G$1" x="134.62" y="45.72"/>
-<instance part="T1" gate="1" x="144.78" y="60.96"/>
-<instance part="T2" gate="1" x="144.78" y="45.72"/>
-<instance part="MCP9700" gate="G$1" x="147.32" y="22.86"/>
-<instance part="JP12" gate="A" x="137.16" y="22.86"/>
+<instance part="JP10" gate="G$1" x="139.7" y="30.48"/>
+<instance part="JP11" gate="G$1" x="139.7" y="15.24"/>
+<instance part="T1" gate="1" x="149.86" y="30.48"/>
+<instance part="T2" gate="1" x="149.86" y="15.24"/>
+<instance part="MCP9700" gate="G$1" x="149.86" y="-2.54"/>
+<instance part="JP12" gate="A" x="139.7" y="-2.54"/>
 <instance part="GND6" gate="1" x="101.6" y="53.34"/>
 <instance part="GND7" gate="1" x="86.36" y="-10.16"/>
-<instance part="ST3" gate="G$1" x="88.9" y="-22.86"/>
-<instance part="ST2" gate="G$1" x="83.82" y="-22.86"/>
-<instance part="ST1" gate="G$1" x="78.74" y="-22.86"/>
+<instance part="ST3" gate="G$1" x="-7.62" y="7.62"/>
+<instance part="ST2" gate="G$1" x="-12.7" y="7.62"/>
+<instance part="ST1" gate="G$1" x="-17.78" y="7.62"/>
 <instance part="JP7" gate="G$1" x="-12.7" y="2.54"/>
 <instance part="JP9" gate="G$1" x="91.44" y="53.34"/>
 <instance part="JP13" gate="G$1" x="50.8" y="-10.16" rot="R270"/>
@@ -7996,7 +8001,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <pinref part="JP5" gate="G$1" pin="1"/>
 <pinref part="P+5" gate="1" pin="+5V"/>
 <wire x1="60.96" y1="-40.64" x2="71.12" y2="-40.64" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="-40.64" x2="71.12" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="-40.64" x2="71.12" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="1"/>
@@ -8011,6 +8016,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="88.9" y1="68.58" x2="78.74" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="68.58" x2="78.74" y2="60.96" width="0.1524" layer="91"/>
 <junction x="78.74" y="60.96"/>
+<junction x="78.74" y="68.58"/>
 </segment>
 </net>
 <net name="RST" class="0">
@@ -8054,7 +8060,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <junction x="-7.62" y="35.56"/>
 </segment>
 </net>
-<net name="MISO" class="0">
+<net name="D12-MISO-ENTER" class="0">
 <segment>
 <pinref part="ISP1" gate="G$1" pin="MISO"/>
 <wire x1="-7.62" y1="-10.16" x2="-12.7" y2="-10.16" width="0.1524" layer="91"/>
@@ -8071,7 +8077,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <junction x="55.88" y="0"/>
 </segment>
 </net>
-<net name="MOSI" class="0">
+<net name="D11-MOSI-TILT" class="0">
 <segment>
 <pinref part="ISP1" gate="G$1" pin="MOSI"/>
 <wire x1="20.32" y1="-12.7" x2="25.4" y2="-12.7" width="0.1524" layer="91"/>
@@ -8084,7 +8090,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <pinref part="TILT" gate="G$1" pin="SLEEVE"/>
 </segment>
 </net>
-<net name="SCK" class="0">
+<net name="D13-SCK-SCREW" class="0">
 <segment>
 <pinref part="ISP1" gate="G$1" pin="SCK"/>
 <wire x1="-7.62" y1="-12.7" x2="-12.7" y2="-12.7" width="0.1524" layer="91"/>
@@ -8103,7 +8109,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="50.8" y1="-43.18" x2="60.96" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="RDX" class="0">
+<net name="D0-RDX" class="0">
 <segment>
 <pinref part="JP4" gate="A" pin="4"/>
 <wire x1="50.8" y1="-45.72" x2="35.56" y2="-45.72" width="0.1524" layer="91"/>
@@ -8114,7 +8120,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <pinref part="JP14" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="TDX" class="0">
+<net name="D1-TDX" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD1(TXD)"/>
 <wire x1="45.72" y1="35.56" x2="114.3" y2="35.56" width="0.1524" layer="91"/>
@@ -8125,49 +8131,49 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="50.8" y1="-48.26" x2="35.56" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="D2-SEGA" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD2(INT0)"/>
 <pinref part="DIS1" gate="M" pin="A"/>
 <wire x1="45.72" y1="33.02" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="D3-SEBB" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD3(INT1)"/>
 <pinref part="DIS1" gate="M" pin="B"/>
 <wire x1="45.72" y1="30.48" x2="66.04" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="D4-SEGC" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD4(XCK/T0)"/>
 <pinref part="DIS1" gate="M" pin="C"/>
 <wire x1="45.72" y1="27.94" x2="66.04" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="D5-SEGD" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD5(T1)"/>
 <pinref part="DIS1" gate="M" pin="D"/>
 <wire x1="45.72" y1="25.4" x2="66.04" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="D6-SEGE" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD6(AIN0)"/>
 <pinref part="DIS1" gate="M" pin="E"/>
 <wire x1="45.72" y1="22.86" x2="66.04" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="D7-SEGF" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD7(AIN1)"/>
 <pinref part="DIS1" gate="M" pin="F"/>
 <wire x1="45.72" y1="20.32" x2="66.04" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="D8-SEGG" class="0">
 <segment>
 <pinref part="DIS1" gate="M" pin="G"/>
 <pinref part="IC1" gate="G$1" pin="PB0(ICP)"/>
@@ -8175,7 +8181,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="66.04" y1="15.24" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="D9-DP" class="0">
 <segment>
 <pinref part="DIS1" gate="M" pin="DP"/>
 <wire x1="96.52" y1="33.02" x2="101.6" y2="33.02" width="0.1524" layer="91"/>
@@ -8196,7 +8202,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <junction x="99.06" y="17.78"/>
 </segment>
 </net>
-<net name="LIGHT2" class="0">
+<net name="A0-LIGHT1" class="0">
 <segment>
 <pinref part="JP2" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="68.58" x2="58.42" y2="68.58" width="0.1524" layer="91"/>
@@ -8209,7 +8215,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <junction x="58.42" y="68.58"/>
 </segment>
 </net>
-<net name="N$14" class="0">
+<net name="A1-LIGHT2" class="0">
 <segment>
 <pinref part="JP3" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="58.42" x2="66.04" y2="53.34" width="0.1524" layer="91"/>
@@ -8225,40 +8231,40 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <net name="N$13" class="0">
 <segment>
 <pinref part="T1" gate="1" pin="E"/>
-<wire x1="147.32" y1="55.88" x2="139.7" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="55.88" x2="139.7" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="25.4" x2="144.78" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="25.4" x2="144.78" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="JP10" gate="G$1" pin="2"/>
-<wire x1="139.7" y1="60.96" x2="132.08" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="30.48" x2="137.16" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
 <pinref part="T2" gate="1" pin="E"/>
-<wire x1="147.32" y1="40.64" x2="139.7" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="40.64" x2="139.7" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="10.16" x2="144.78" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="10.16" x2="144.78" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="JP11" gate="G$1" pin="2"/>
-<wire x1="139.7" y1="45.72" x2="132.08" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="15.24" x2="137.16" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="T2" gate="1" pin="C"/>
-<wire x1="147.32" y1="50.8" x2="139.7" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="50.8" x2="139.7" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="20.32" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="20.32" x2="144.78" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="JP11" gate="G$1" pin="1"/>
-<wire x1="139.7" y1="48.26" x2="132.08" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="17.78" x2="137.16" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="T1" gate="1" pin="C"/>
-<wire x1="147.32" y1="66.04" x2="139.7" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="66.04" x2="139.7" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="35.56" x2="144.78" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="35.56" x2="144.78" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="JP10" gate="G$1" pin="1"/>
-<wire x1="139.7" y1="63.5" x2="132.08" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="33.02" x2="137.16" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="A2-TEMP" class="0">
 <segment>
 <pinref part="JP8" gate="A" pin="2"/>
 <wire x1="88.9" y1="71.12" x2="81.28" y2="71.12" width="0.1524" layer="91"/>
@@ -8271,26 +8277,26 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <segment>
 <pinref part="MCP9700" gate="G$1" pin="E"/>
 <pinref part="JP12" gate="A" pin="3"/>
-<wire x1="149.86" y1="17.78" x2="134.62" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="17.78" x2="134.62" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="-7.62" x2="137.16" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="-7.62" x2="137.16" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="MCP9700" gate="G$1" pin="B"/>
 <pinref part="JP12" gate="A" pin="2"/>
-<wire x1="144.78" y1="22.86" x2="134.62" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-2.54" x2="137.16" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="MCP9700" gate="G$1" pin="C"/>
 <pinref part="JP12" gate="A" pin="1"/>
-<wire x1="149.86" y1="27.94" x2="134.62" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="27.94" x2="134.62" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="2.54" x2="137.16" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="2.54" x2="137.16" y2="0" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="A3-MAGNET" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC3(ADC3)"/>
 <wire x1="45.72" y1="48.26" x2="83.82" y2="48.26" width="0.1524" layer="91"/>
@@ -8299,7 +8305,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="83.82" y1="53.34" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$23" class="0">
+<net name="D10-BUZZER" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB2(SS/OC1B)"/>
 <wire x1="45.72" y1="10.16" x2="91.44" y2="10.16" width="0.1524" layer="91"/>
@@ -8309,7 +8315,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="96.52" y1="0" x2="96.52" y2="2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$24" class="0">
+<net name="A4" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC4(ADC4/SDA)"/>
 <wire x1="45.72" y1="45.72" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
@@ -8318,7 +8324,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="104.14" y1="48.26" x2="114.3" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="A5" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="PC5(ADC5/SCL)"/>
 <wire x1="45.72" y1="43.18" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
@@ -8332,13 +8338,20 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 </sheets>
 <errors>
 <approved hash="104,1,20.32,-10.16,ISP1,VCC,+5V,,,"/>
-<approved hash="115,1,51.0371,-43.0488,FTDI,,,,,"/>
-<approved hash="115,1,64.5719,-40.5088,AUXPOWER,,,,,"/>
+<approved hash="117,1,57.15,0,D12-MISO-ENTER,,,,,"/>
+<approved hash="117,1,-10.16,-10.16,D12-MISO-ENTER,,,,,"/>
 <approved hash="117,1,22.86,-10.16,+5V,,,,,"/>
-<approved hash="117,1,-10.16,-12.7,SCK,,,,,"/>
-<approved hash="117,1,-10.16,-10.16,MISO,,,,,"/>
-<approved hash="117,1,43.18,-48.26,TDX,,,,,"/>
-<approved hash="117,1,49.53,35.56,TDX,,,,,"/>
+<approved hash="117,1,43.18,-48.26,D1-TDX,,,,,"/>
+<approved hash="117,1,80.01,35.56,D1-TDX,,,,,"/>
+<approved hash="117,1,43.18,-50.8,RST,,,,,"/>
+<approved hash="117,1,-10.16,-15.24,RST,,,,,"/>
+<approved hash="117,1,-5.08,55.88,RST,,,,,"/>
+<approved hash="117,1,48.26,2.54,D13-SCK-SCREW,,,,,"/>
+<approved hash="117,1,-10.16,-12.7,D13-SCK-SCREW,,,,,"/>
+<approved hash="117,1,80.01,38.1,D0-RDX,,,,,"/>
+<approved hash="117,1,43.18,-45.72,D0-RDX,,,,,"/>
+<approved hash="117,1,76.2,5.08,D11-MOSI-TILT,,,,,"/>
+<approved hash="117,1,22.86,-12.7,D11-MOSI-TILT,,,,,"/>
 <approved hash="117,1,22.86,-15.24,GND,,,,,"/>
 </errors>
 </schematic>
