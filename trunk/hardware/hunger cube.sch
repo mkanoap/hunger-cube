@@ -7666,6 +7666,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <text x="-1.27" y="3.81" size="1.27" layer="21">&gt;Name</text>
 <text x="-1.27" y="-5.08" size="1.27" layer="21">&gt;Value</text>
 <smd name="SLEEVE" x="0" y="2.54" dx="1.27" dy="0.635" layer="1" rot="R180"/>
+<wire x1="0" y1="2.54" x2="0" y2="-2.54" width="1" layer="29" curve="-180"/>
 </package>
 </packages>
 <symbols>
@@ -7713,7 +7714,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="S6" library="SparkFun" deviceset="TAC_SWITCH" device="PTH" value="reset"/>
 <part name="C1" library="resistor" deviceset="C-US" device="025-050X050" value="18pF"/>
 <part name="C2" library="resistor" deviceset="C-US" device="025-050X050" value="18pF"/>
-<part name="DIS1" library="display-hp" deviceset="HD-H101" device=""/>
+<part name="DIS1" library="display-hp" deviceset="HD-H101" device="" value="display"/>
 <part name="IC2" library="adafruit" deviceset="MCP1700" device="INLINE" value="LDO 5v"/>
 <part name="C3" library="resistor" deviceset="C-US" device="025-050X050" value="1 uf"/>
 <part name="C4" library="resistor" deviceset="C-US" device="025-050X050" value="1 uf"/>
@@ -7740,7 +7741,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="JP10" library="pinhead" deviceset="PINHD-1X2" device="" value="R Light 1"/>
 <part name="JP11" library="pinhead" deviceset="PINHD-1X2" device="" value="R light 2"/>
-<part name="T1" library="opto-trans-siemens" deviceset="BPX81" device="" value="PT204"/>
+<part name="T1" library="opto-trans-siemens" deviceset="BPX81" device="" value="light"/>
 <part name="T2" library="opto-trans-siemens" deviceset="BPX81" device="" value="PT204"/>
 <part name="MCP9700" library="transistor" deviceset="*-NPN-" device="TO92-EBC" value="temp"/>
 <part name="JP12" library="pinhead" deviceset="PINHD-1X3" device="" value="R temp"/>
@@ -7756,13 +7757,14 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="SG1" library="SparkFun" deviceset="BUZZER" device="PTH"/>
 <part name="JP6" library="pinhead" deviceset="PINHD-1X2" device="" value="A5 A4"/>
 <part name="JP14" library="pinhead" deviceset="PINHD-1X2" device="" value="D0 D1"/>
+<part name="C5" library="resistor" deviceset="C-US" device="025-050X050" value=".1 uf"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="35.56" y="-45.72" size="1.778" layer="91">RDX</text>
-<text x="35.56" y="-48.26" size="1.778" layer="91">TDX</text>
-<text x="35.56" y="-50.8" size="1.778" layer="91">RST</text>
+<text x="43.18" y="-45.72" size="1.778" layer="91">RDX</text>
+<text x="43.18" y="-48.26" size="1.778" layer="91">TDX</text>
+<text x="34.036" y="-36.068" size="1.778" layer="91">RST</text>
 <wire x1="-33.02" y1="-22.86" x2="-17.78" y2="-22.86" width="0.1524" layer="94"/>
 <wire x1="33.02" y1="-22.86" x2="33.02" y2="-55.88" width="0.1524" layer="94"/>
 <wire x1="33.02" y1="-55.88" x2="-33.02" y2="-55.88" width="0.1524" layer="94"/>
@@ -7806,10 +7808,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <instance part="GND2" gate="1" x="-25.4" y="-5.08"/>
 <instance part="P+3" gate="1" x="10.16" y="71.12"/>
 <instance part="P+4" gate="1" x="-15.24" y="25.4" rot="R90"/>
-<instance part="JP4" gate="A" x="53.34" y="-45.72"/>
+<instance part="JP4" gate="A" x="55.88" y="-45.72"/>
 <instance part="GND3" gate="1" x="40.64" y="-30.48" rot="R180"/>
 <instance part="P+5" gate="1" x="71.12" y="-33.02"/>
-<instance part="JP5" gate="G$1" x="63.5" y="-43.18"/>
+<instance part="JP5" gate="G$1" x="66.04" y="-43.18"/>
 <instance part="GND4" gate="1" x="119.38" y="15.24"/>
 <instance part="JP2" gate="G$1" x="68.58" y="68.58" smashed="yes">
 <attribute name="NAME" x="62.23" y="74.295" size="1.778" layer="95"/>
@@ -7847,6 +7849,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <attribute name="NAME" x="110.49" y="41.275" size="1.778" layer="95"/>
 <attribute name="VALUE" x="118.11" y="33.02" size="1.778" layer="96"/>
 </instance>
+<instance part="C5" gate="G$1" x="35.56" y="-43.18"/>
 </instances>
 <busses>
 </busses>
@@ -7915,10 +7918,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <segment>
 <pinref part="JP4" gate="A" pin="1"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="50.8" y1="-38.1" x2="40.64" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-38.1" x2="40.64" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="-38.1" x2="40.64" y2="-33.02" width="0.1524" layer="91"/>
 <pinref part="JP4" gate="A" pin="2"/>
-<wire x1="50.8" y1="-40.64" x2="40.64" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-40.64" x2="40.64" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="-40.64" x2="40.64" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="40.64" y="-38.1"/>
 </segment>
@@ -8000,7 +8003,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <segment>
 <pinref part="JP5" gate="G$1" pin="1"/>
 <pinref part="P+5" gate="1" pin="+5V"/>
-<wire x1="60.96" y1="-40.64" x2="71.12" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="-40.64" x2="71.12" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="-40.64" x2="71.12" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -8034,8 +8037,8 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="-7.62" y1="-15.24" x2="-12.7" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP4" gate="A" pin="6"/>
-<wire x1="50.8" y1="-50.8" x2="35.56" y2="-50.8" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="-40.64" x2="35.56" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -8106,13 +8109,13 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <segment>
 <pinref part="JP4" gate="A" pin="3"/>
 <pinref part="JP5" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="-43.18" x2="60.96" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-43.18" x2="63.5" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D0-RDX" class="0">
 <segment>
 <pinref part="JP4" gate="A" pin="4"/>
-<wire x1="50.8" y1="-45.72" x2="35.56" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-45.72" x2="43.18" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD0(RXD)"/>
@@ -8128,7 +8131,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 </segment>
 <segment>
 <pinref part="JP4" gate="A" pin="5"/>
-<wire x1="50.8" y1="-48.26" x2="35.56" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-48.26" x2="43.18" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D2-SEGA" class="0">
@@ -8190,7 +8193,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="101.6" y1="12.7" x2="45.72" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="DSP-GND" class="0">
 <segment>
 <pinref part="DIS1" gate="M" pin="CA@1"/>
 <pinref part="R2" gate="G$1" pin="2"/>
@@ -8331,6 +8334,14 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="106.68" y1="43.18" x2="106.68" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="JP6" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="45.72" x2="114.3" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="JP4" gate="A" pin="6"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="53.34" y1="-50.8" x2="35.56" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="-50.8" x2="35.56" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
