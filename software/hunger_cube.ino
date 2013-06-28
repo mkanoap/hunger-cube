@@ -85,15 +85,17 @@ int dOffTime = blinkTime; // time between blinks
 int decState = 0; // whether the decimal point is on or not
 int lastBlinkTime = 0; // counter used to tell how long the decimal blink has been on or off
 int guesses =0;  // how many times they have guessed wrong
-//char codeword[] = "aaaaaaaa";
 
 // tuneable values
 int light2threshold=80; // value at which to trigger light bit.  Bigger numbers require brighter light.
 int tempThreshold=2; // how many degrees (celcius) change to trigger temperature bit.
-long debounceDelay = 30; // how long to decide the button is really pushed.
-char codeword[] = "forceful"; // 6 15 18 3 5 6 21 12 - 4+2 8+4+2+1 16+2 1+2 4+1 4+2 16+4+1 8+4 - f=m+w o=l+m+w+t r=c+w c=t+w e=m+t f=m+w u=c+m+t l=l+m
+long debounceDelay = 10; // how long to decide the button is really pushed.
 char message[] = "the red ring of death"; // message and codeword must be all lower case
-int maxwrong = 3; // number of times they can guess wrong without resetting
+int maxwrong = 300; // number of times they can guess wrong without resetting
+//char codeword[] = "forceful"; // 6 15 18 3 5 6 21 12 - 4+2 8+4+2+1 16+2 1+2 4+1 4+2 16+4+1 8+4 - f=m+w o=l+m+w+t r=c+w c=t+w e=m+t f=m+w u=c+m+t l=l+m
+
+char codeword[] = "aa";
+
 
 void setup () {
 // initialize serial communication:
@@ -109,6 +111,7 @@ void setup () {
   pinMode(screwpin, INPUT); digitalWrite(screwpin, HIGH);
 // show that it's been turned on
   animate(30,3);
+
 // calibrate the temperature sensor with starting temperature
   set_display(0);
   delay(10);
@@ -177,7 +180,7 @@ void make_guess() { // input current state
   Serial.println(letternum);
 }
 
-void do_finish() {
+void do_finish() {  // run after all the correct value is entered
   delay(500);
   decState=0;
   set_display(0);
@@ -185,6 +188,7 @@ void do_finish() {
   int displayValue=0;
   int mnum=0;
   while (true) { // do until turned off
+    animate2(30,10);
     for (int i=0; i<sizeof(message); i++) {
       mnum=message[i];
       mnum=mnum-96;
@@ -305,6 +309,16 @@ void animate(int delval, int times) {
   int frame[] = {1,2,64,16,8,4,64,32}; // make a figure 8
   for (int i=0; i <= times; i++) {
     for (int ii=0; ii <= 7; ii++) {
+      set_display(frame[ii]);
+      delay(delval);
+    }
+  }
+}
+
+void animate2(int delval, int times) {
+  int frame[] = {1,2,4,8,16,32}; // make a figure 0
+  for (int i=0; i <= times; i++) {
+    for (int ii=0; ii <= 5; ii++) {
       set_display(frame[ii]);
       delay(delval);
     }
