@@ -84,17 +84,18 @@ int dOnTime = 80; // time a decimal blink should last
 int dOffTime = blinkTime; // time between blinks
 int decState = 0; // whether the decimal point is on or not
 int lastBlinkTime = 0; // counter used to tell how long the decimal blink has been on or off
+int blinkCounter=0; // used to count how many times it has blinked
 int guesses =0;  // how many times they have guessed wrong
 
 // tuneable values
-int light2threshold=80; // value at which to trigger light bit.  Bigger numbers require brighter light.
+int light2threshold=60; // value at which to trigger light bit.  Bigger numbers require brighter light.
 int tempThreshold=2; // how many degrees (celcius) change to trigger temperature bit.
 long debounceDelay = 10; // how long to decide the button is really pushed.
 char message[] = "the red ring of death"; // message and codeword must be all lower case
 int maxwrong = 300; // number of times they can guess wrong without resetting
 char codeword[] = "forceful"; // 6 15 18 3 5 6 21 12 - 4+2 8+4+2+1 16+2 1+2 4+1 4+2 16+4+1 8+4 - f=m+w o=l+m+w+t r=c+w c=t+w e=m+t f=m+w u=c+m+t l=l+m
 
-//char codeword[] = "aa";
+//char codeword[] = "aaaaaaaa";
 
 
 void setup () {
@@ -145,14 +146,20 @@ void loop () {
 
 void update_blink() { // check to see if it's time to toggle the decimal point
   int blinkDelta=millis()-lastBlinkTime; // see how long it has been since the blinker turned on
-  if (blinkDelta < dOnTime) { // if within the "on" period, turn on
+  if (blinkDelta < dOnTime && blinkCounter <= letter ) { // if within the "on" period, turn on
     decState=1;
   } else {
     decState=0;
   }
   if (blinkDelta > dOffTime) { // if it's gone beyond the "off" period, start over.
     lastBlinkTime=millis();
-    decState=1; // and turn on
+    if (blinkCounter <= letter) {
+      decState=1; // and turn on
+    }
+    blinkCounter++; // increment the blink counter
+    if (blinkCounter > (letter+1)) {
+      blinkCounter=0;
+    }
   }
 }
 
@@ -273,10 +280,12 @@ int read_sensors() {
   Serial.print(tempState);
   Serial.print("\tlt=");
   Serial.print(lastTempState);
-  Serial.print("\tcv=");
-  Serial.print(currentval);
+  Serial.print("\tbc=");
+  Serial.print(blinkCounter);
   Serial.print("\t");
-  Serial.print(buttonState);
+  Serial.print(letter);
+  Serial.print("\t");
+  Serial.print(blinkCounter <= letter);
   Serial.println();
 
   return(currentval);
