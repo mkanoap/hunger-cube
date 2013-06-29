@@ -8090,10 +8090,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="C2" library="resistor" deviceset="C-US" device="025-050X050" value="18pF"/>
 <part name="DIS1" library="display-hp" deviceset="HD-H101" device="" value="display"/>
 <part name="IC2" library="adafruit" deviceset="MCP1700" device="INLINE" value="LDO 5v"/>
-<part name="C3" library="resistor" deviceset="C-US" device="025-050X050" value="1 uf"/>
-<part name="C4" library="resistor" deviceset="C-US" device="025-050X050" value="1 uf"/>
+<part name="C3" library="resistor" deviceset="C-US" device="025-050X050" value="1uf"/>
+<part name="C4" library="resistor" deviceset="C-US" device="025-050X050" value="1uf"/>
 <part name="R2" library="resistor" deviceset="R-US_" device="0207/12" value="100"/>
-<part name="R3" library="resistor" deviceset="R-US_" device="0207/12"/>
+<part name="R3" library="resistor" deviceset="R-US_" device="0207/12" value="10K"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="FRAME1" library="frames" deviceset="DOCFIELD" device="" value="1"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -8108,17 +8108,17 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="JP5" library="pinhead" deviceset="PINHD-1X2" device="" value="Aux Pwr"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X2" device="" value="Light1"/>
-<part name="JP3" library="pinhead" deviceset="PINHD-1X2" device="" value="Light 2"/>
+<part name="JP3" library="pinhead" deviceset="PINHD-1X2" device="" value="Light2"/>
 <part name="JP8" library="pinhead" deviceset="PINHD-1X3" device="" value="TEMP"/>
-<part name="R4" library="resistor" deviceset="R-US_" device="0207/12"/>
+<part name="R4" library="resistor" deviceset="R-US_" device="0207/12" value="10K"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
-<part name="JP10" library="pinhead" deviceset="PINHD-1X2" device="" value="R Light 1"/>
-<part name="JP11" library="pinhead" deviceset="PINHD-1X2" device="" value="R light 2"/>
+<part name="JP10" library="pinhead" deviceset="PINHD-1X2" device="" value="RLight1"/>
+<part name="JP11" library="pinhead" deviceset="PINHD-1X2" device="" value="Rlight2"/>
 <part name="T1" library="opto-trans-siemens" deviceset="BPX81" device="" value="light"/>
-<part name="T2" library="opto-trans-siemens" deviceset="BPX81" device="" value="PT204"/>
-<part name="MCP9700" library="transistor" deviceset="*-NPN-" device="TO92-EBC" value="temp"/>
-<part name="JP12" library="pinhead" deviceset="PINHD-1X3" device="" value="R temp"/>
+<part name="T2" library="opto-trans-siemens" deviceset="BPX81" device="" value="light"/>
+<part name="TEMPERATURE" library="transistor" deviceset="*-NPN-" device="TO92-EBC" value="Temperature"/>
+<part name="JP12" library="pinhead" deviceset="PINHD-1X3" device="" value="Rtemp"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="ST3" library="SparkFun" deviceset="STAND-OFF" device=""/>
@@ -8131,7 +8131,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="SG1" library="buzzer" deviceset="F/CM12P" device=""/>
 <part name="JP6" library="pinhead" deviceset="PINHD-1X2" device="" value="A5 A4"/>
 <part name="JP14" library="pinhead" deviceset="PINHD-1X2" device="" value="D0 D1"/>
-<part name="C5" library="resistor" deviceset="C-US" device="025-050X050" value=".1 uf"/>
+<part name="C5" library="resistor" deviceset="C-US" device="025-050X050" value=".1uf"/>
 <part name="D1" library="adafruit" deviceset="SCHOTTKY-DIODE" device="DO41"/>
 </parts>
 <sheets>
@@ -8174,7 +8174,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <instance part="C3" gate="G$1" x="22.86" y="-40.64"/>
 <instance part="C4" gate="G$1" x="-5.08" y="-40.64"/>
 <instance part="R2" gate="G$1" x="109.22" y="17.78" rot="R180"/>
-<instance part="R3" gate="G$1" x="48.26" y="73.66" rot="R180"/>
+<instance part="R3" gate="G$1" x="48.26" y="73.66" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.07" y="72.1614" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="46.99" y="71.882" size="1.778" layer="96" rot="R180"/>
+</instance>
 <instance part="P+1" gate="VCC" x="-5.08" y="-27.94"/>
 <instance part="FRAME1" gate="G$1" x="76.2" y="-55.88"/>
 <instance part="GND1" gate="1" x="10.16" y="-50.8"/>
@@ -8197,14 +8200,17 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <attribute name="VALUE" x="69.85" y="53.34" size="1.778" layer="96"/>
 </instance>
 <instance part="JP8" gate="A" x="91.44" y="71.12"/>
-<instance part="R4" gate="G$1" x="48.26" y="68.58" rot="R180"/>
+<instance part="R4" gate="G$1" x="48.26" y="68.58" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.07" y="67.0814" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="46.99" y="66.802" size="1.778" layer="96" rot="R180"/>
+</instance>
 <instance part="GND5" gate="1" x="40.64" y="63.5"/>
 <instance part="P+6" gate="1" x="78.74" y="78.74"/>
 <instance part="JP10" gate="G$1" x="139.7" y="30.48"/>
 <instance part="JP11" gate="G$1" x="139.7" y="15.24"/>
 <instance part="T1" gate="1" x="149.86" y="30.48"/>
 <instance part="T2" gate="1" x="149.86" y="15.24"/>
-<instance part="MCP9700" gate="G$1" x="149.86" y="-2.54"/>
+<instance part="TEMPERATURE" gate="G$1" x="149.86" y="-2.54"/>
 <instance part="JP12" gate="A" x="139.7" y="-2.54"/>
 <instance part="GND6" gate="1" x="101.6" y="53.34"/>
 <instance part="GND7" gate="1" x="86.36" y="-10.16"/>
@@ -8655,7 +8661,7 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="MCP9700" gate="G$1" pin="E"/>
+<pinref part="TEMPERATURE" gate="G$1" pin="E"/>
 <pinref part="JP12" gate="A" pin="3"/>
 <wire x1="152.4" y1="-7.62" x2="137.16" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="-7.62" x2="137.16" y2="-5.08" width="0.1524" layer="91"/>
@@ -8663,14 +8669,14 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 </net>
 <net name="N$21" class="0">
 <segment>
-<pinref part="MCP9700" gate="G$1" pin="B"/>
+<pinref part="TEMPERATURE" gate="G$1" pin="B"/>
 <pinref part="JP12" gate="A" pin="2"/>
 <wire x1="147.32" y1="-2.54" x2="137.16" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
-<pinref part="MCP9700" gate="G$1" pin="C"/>
+<pinref part="TEMPERATURE" gate="G$1" pin="C"/>
 <pinref part="JP12" gate="A" pin="1"/>
 <wire x1="152.4" y1="2.54" x2="137.16" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="2.54" x2="137.16" y2="0" width="0.1524" layer="91"/>
