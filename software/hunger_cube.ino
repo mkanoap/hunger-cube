@@ -25,18 +25,18 @@ int font[] = {
   94,  // d
   121, // E
   113, // F
-  125,  // G (poor, looks like 6)
+  111,  // G (poor, looks like 6)
   118,  // H
   48,  // I (left side)
   30,  // J
   117, // k (poor)
   56,  // L
   79,  // m (looks like a 3)
-  84,  // n
-  92,  // o
+  55,  // n
+  63,  // o
   115, // P
   103, // q (looks like 9)
-  80,  // r
+  49,  // r
   109, // S (looks like 5)
   120, //  112, // T (sideways)
   62,  // U
@@ -44,7 +44,7 @@ int font[] = {
   42,  // w (terrible)
   73,  // x (extra terrible)
   110, // Y
-  82,  // z (on it's side)
+  91,  // z (on it's side)
   191,  // 0
   134,   // 1
   219, // 2
@@ -88,7 +88,7 @@ int blinkCounter=0; // used to count how many times it has blinked
 int guesses =0;  // how many times they have guessed wrong
 
 // tuneable values
-int light2threshold=60; // value at which to trigger light bit.  Bigger numbers require brighter light.
+int light2threshold=40; // value at which to trigger light bit.  Bigger numbers require brighter light.
 int tempThreshold=2; // how many degrees (celcius) change to trigger temperature bit.
 long debounceDelay = 10; // how long to decide the button is really pushed.
 char message[] = "the red ring of death"; // message and codeword must be all lower case
@@ -119,6 +119,7 @@ void setup () {
   starting_temp=read_temp();
   lastBlinkTime = millis(); //start the blink timer
 //  play_tune();
+//  show_font();
 }
 
 void loop () {
@@ -142,6 +143,13 @@ void loop () {
   delay(75);
   update_blink();
   delay(75);
+}
+
+void show_font() {
+    for (int i=1;i<37;i++) {
+      set_display(font[i]);
+      delay(1000);
+    }
 }
 
 void update_blink() { // check to see if it's time to toggle the decimal point
