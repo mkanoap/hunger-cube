@@ -94,8 +94,8 @@ long debounceDelay = 10; // how long to decide the button is really pushed.
 char message[] = "the red ring of death"; // message and codeword must be all lower case
 int maxwrong = 300; // number of times they can guess wrong without resetting
 char codeword[] = "forceful"; // 6 15 18 3 5 6 21 12 - 4+2 8+4+2+1 16+2 1+2 4+1 4+2 16+4+1 8+4 - f=m+w o=l+m+w+t r=c+w c=t+w e=m+t f=m+w u=c+m+t l=l+m
-
 //char codeword[] = "aaaaaaaa";
+//char codeword[] = "abdhp ";
 
 
 void setup () {
